@@ -1,0 +1,29 @@
+# Last Modified: Wed Nov 16 18:19:24 2022
+abi <abi/3.0>,
+
+include <tunables/global>
+/home/olatunde/p2 {
+
+  include <abstractions/base>
+  include <abstractions/bash>
+  include <abstractions/user-tmp>
+  include <abstractions/apache2-common>
+
+
+  /home/olatunde/.project2/config w,
+  /home/olatunde/template r,
+  /var/log/syslog r,
+  /proc/version r,
+  /proc/uptime r,
+  /proc/buddyinfo r,
+  /etc/crontab r,
+  /etc/hosts r,
+  /etc/hostid r,
+  /etc/fstab r,
+
+
+  deny @{PROC}/stat r,
+  deny /etc/host.conf r,
+  deny /etc/nsswitch.conf r,
+  deny /etc/{login.defs,nsswitch.conf,bash_completion} r,
+}
